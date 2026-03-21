@@ -27,12 +27,20 @@ const categories: CategoryCard[] = [
     span: "md:col-span-2 md:row-span-2",
   },
   {
+    title: "Samsung",
+    desc: "Galaxy · Наушники · Часы",
+    image: categoryDyson,
+    query: "продукция%20Samsung",
+    span: "md:col-span-1 md:row-span-1",
+    glowColor: "hsla(52, 100%, 50%, 0.12)",
+  },
+  {
     title: "Dyson",
     desc: "Стайлеры · Фены · Очистители",
     image: categoryDyson,
     query: "продукция%20Dyson",
     span: "md:col-span-1 md:row-span-1",
-    glowColor: "hsla(290, 60%, 50%, 0.2)",
+    glowColor: "hsla(290, 60%, 50%, 0.15)",
   },
   {
     title: "PlayStation",
@@ -40,7 +48,7 @@ const categories: CategoryCard[] = [
     image: categoryPs5,
     query: "PlayStation%205",
     span: "md:col-span-1 md:row-span-1",
-    glowColor: "hsla(215, 80%, 50%, 0.18)",
+    glowColor: "hsla(215, 80%, 50%, 0.15)",
   },
   {
     title: "Парфюмерия",
@@ -54,7 +62,7 @@ const categories: CategoryCard[] = [
 
 const BentoGrid = () => {
   return (
-    <section className="px-6 md:px-12 py-32 max-w-7xl mx-auto">
+    <section id="catalog" className="px-6 md:px-12 py-32 max-w-7xl mx-auto">
       <motion.div
         className="mb-20"
         initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
@@ -62,7 +70,7 @@ const BentoGrid = () => {
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.8, ease }}
       >
-        <p className="text-muted-foreground text-xs tracking-[0.3em] uppercase mb-4">Каталог</p>
+        <p className="text-primary text-xs tracking-[0.3em] uppercase mb-4 font-medium">Каталог</p>
         <h2
           className="text-4xl md:text-6xl lg:text-7xl font-black tracking-[-0.04em] text-foreground"
           style={{ lineHeight: 1 }}
@@ -86,7 +94,6 @@ const BentoGrid = () => {
             viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.7, delay: i * 0.08, ease }}
           >
-            {/* Image */}
             <img
               src={cat.image}
               alt={cat.title}
@@ -94,7 +101,6 @@ const BentoGrid = () => {
               loading="lazy"
             />
 
-            {/* Colored glow */}
             {cat.glowColor && (
               <div
                 className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
@@ -104,13 +110,10 @@ const BentoGrid = () => {
               />
             )}
 
-            {/* Gradient scrim */}
             <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
 
-            {/* Border overlay */}
-            <div className="absolute inset-0 rounded-2xl border border-border/40 group-hover:border-border/70 transition-colors duration-500 pointer-events-none" />
+            <div className="absolute inset-0 rounded-2xl border border-primary/10 group-hover:border-primary/25 transition-colors duration-500 pointer-events-none" />
 
-            {/* Content */}
             <div className="relative z-10 flex flex-col justify-end h-full p-6 md:p-8">
               <h3
                 className={`text-xl md:text-2xl font-bold tracking-tight text-foreground mb-1 transition-transform duration-500 group-hover:translate-y-[-2px] ${

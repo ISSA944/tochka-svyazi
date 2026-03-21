@@ -1,4 +1,6 @@
+import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
+import AdvantagesSection from "@/components/AdvantagesSection";
 import BentoGrid from "@/components/BentoGrid";
 import TradeInSection from "@/components/TradeInSection";
 import LocationsSection from "@/components/LocationsSection";
@@ -8,7 +10,9 @@ import Footer from "@/components/Footer";
 const Index = () => {
   return (
     <main className="min-h-screen bg-background">
+      <Navbar />
       <HeroSection />
+      <AdvantagesSection />
       <BentoGrid />
       <TradeInSection />
       <LocationsSection />

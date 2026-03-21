@@ -22,7 +22,7 @@ const locations = [
 
 const LocationsSection = () => {
   return (
-    <section className="px-6 md:px-12 py-32 max-w-7xl mx-auto">
+    <section id="locations" className="px-6 md:px-12 py-32 max-w-7xl mx-auto">
       <motion.div
         className="mb-20"
         initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
@@ -30,7 +30,7 @@ const LocationsSection = () => {
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.8, ease }}
       >
-        <p className="text-muted-foreground text-xs tracking-[0.3em] uppercase mb-4">Контакты</p>
+        <p className="text-primary text-xs tracking-[0.3em] uppercase mb-4 font-medium">Контакты</p>
         <h2
           className="text-4xl md:text-6xl lg:text-7xl font-black tracking-[-0.04em] text-foreground"
           style={{ lineHeight: 1 }}
@@ -48,7 +48,7 @@ const LocationsSection = () => {
             href={loc.mapUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative rounded-2xl border border-border/30 bg-card p-8 md:p-10 transition-all duration-500 hover:border-border/60 hover:shadow-[0_0_40px_-12px_hsla(210,100%,50%,0.08)]"
+            className="group relative rounded-2xl border border-primary/10 bg-card p-8 md:p-10 transition-all duration-500 hover:border-primary/30 hover:shadow-[0_0_40px_-12px_hsla(52,100%,50%,0.1)]"
             initial={{ opacity: 0, y: 24, filter: "blur(6px)" }}
             whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             viewport={{ once: true, amount: 0.2 }}
@@ -56,12 +56,12 @@ const LocationsSection = () => {
           >
             <div className="flex items-center justify-between mb-8">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-secondary flex items-center justify-center">
-                  <MapPin className="h-4 w-4 text-muted-foreground" />
+                <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                  <MapPin className="h-4 w-4 text-primary" />
                 </div>
                 <span className="text-muted-foreground text-xs tracking-[0.15em] uppercase font-medium">{loc.label}</span>
               </div>
-              <ExternalLink className="h-4 w-4 text-muted-foreground/40 group-hover:text-muted-foreground transition-colors duration-300" />
+              <ExternalLink className="h-4 w-4 text-muted-foreground/40 group-hover:text-primary transition-colors duration-300" />
             </div>
 
             <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-foreground mb-5 group-hover:translate-y-[-1px] transition-transform duration-500">
@@ -70,7 +70,7 @@ const LocationsSection = () => {
 
             <div className="flex items-center gap-6 text-muted-foreground text-sm">
               <div className="flex items-center gap-2">
-                <Clock className="h-3.5 w-3.5" />
+                <Clock className="h-3.5 w-3.5 text-primary/60" />
                 {loc.hours}
               </div>
               <span className="text-muted-foreground/50">{loc.days}</span>

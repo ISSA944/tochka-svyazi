@@ -1,7 +1,7 @@
 import { lazy, Suspense } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { MessageCircle, ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 
 const Scene3D = lazy(() => import("@/components/Scene3D"));
 
@@ -19,24 +19,24 @@ const HeroSection = () => {
         </Suspense>
       </div>
 
-      {/* Gradient overlays for readability */}
+      {/* Gradient overlays */}
       <div className="absolute inset-0 z-[1] bg-gradient-to-b from-background/80 via-background/40 to-background" />
       <div className="absolute inset-0 z-[1] bg-gradient-to-r from-background/60 via-transparent to-background/60" />
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 pt-20 pb-32">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 pt-32 pb-32">
         <div className="max-w-3xl">
           <motion.div
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border/50 bg-secondary/50 mb-10"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/20 bg-primary/5 mb-10"
             initial={{ opacity: 0, y: 16, filter: "blur(6px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ duration: 0.7, ease }}
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-[hsl(142,70%,45%)] animate-pulse" />
-            <span className="text-muted-foreground text-xs tracking-wide">Точка Связи — Экибастуз</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+            <span className="text-primary text-xs tracking-wide font-medium">Точка Связи — Экибастуз</span>
           </motion.div>
 
           <motion.h1
-            className="text-[clamp(2.8rem,8vw,7.5rem)] font-black tracking-[-0.05em] text-foreground mb-8 overflow-wrap-break-word"
+            className="text-[clamp(2.8rem,8vw,7.5rem)] font-black tracking-[-0.05em] text-foreground mb-8"
             style={{ lineHeight: 0.9 }}
             initial={{ opacity: 0, y: 40, filter: "blur(16px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
@@ -55,7 +55,7 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ duration: 0.9, delay: 0.4, ease }}
           >
-            iPhone · Dyson · PlayStation 5 · Парфюмерия
+            iPhone · Samsung · Dyson · PS5 · Парфюм
             <br className="hidden md:block" />
             Оригинальные товары с гарантией
           </motion.p>
@@ -68,13 +68,12 @@ const HeroSection = () => {
           >
             <Button variant="hero" size="lg" asChild>
               <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-                Заказать сейчас
+                Перейти в WhatsApp
               </a>
             </Button>
             <Button variant="outline" size="lg" asChild>
-              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-                <MessageCircle className="mr-2 h-5 w-5" />
-                WhatsApp
+              <a href="#catalog">
+                Каталог
               </a>
             </Button>
           </motion.div>
@@ -88,12 +87,12 @@ const HeroSection = () => {
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 1 }}
       >
-        <span className="text-muted-foreground/40 text-[10px] tracking-[0.3em] uppercase">Scroll</span>
+        <span className="text-primary/40 text-[10px] tracking-[0.3em] uppercase">Scroll</span>
         <motion.div
           animate={{ y: [0, 6, 0] }}
           transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
         >
-          <ChevronDown className="h-4 w-4 text-muted-foreground/40" />
+          <ChevronDown className="h-4 w-4 text-primary/40" />
         </motion.div>
       </motion.div>
     </section>

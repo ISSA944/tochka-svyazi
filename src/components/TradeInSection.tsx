@@ -13,33 +13,31 @@ const steps = [
 
 const TradeInSection = () => {
   return (
-    <section className="px-6 md:px-12 py-32 max-w-7xl mx-auto">
+    <section id="tradein" className="px-6 md:px-12 py-32 max-w-7xl mx-auto">
       <motion.div
-        className="relative rounded-[2rem] overflow-hidden border border-border/30"
+        className="relative rounded-[2rem] overflow-hidden border border-primary/15"
         style={{ background: "linear-gradient(135deg, hsl(0 0% 5%) 0%, hsl(0 0% 3%) 100%)" }}
         initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
         whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.9, ease }}
       >
-        {/* Accent glow */}
         <div
-          className="absolute -top-32 right-0 w-[400px] h-[400px] rounded-full opacity-25 blur-[140px] pointer-events-none"
-          style={{ background: "hsl(210 100% 50%)" }}
+          className="absolute -top-32 right-0 w-[400px] h-[400px] rounded-full opacity-20 blur-[140px] pointer-events-none"
+          style={{ background: "hsl(52 100% 50%)" }}
         />
 
         <div className="relative z-10 grid md:grid-cols-2 gap-12 p-10 md:p-16 lg:p-20">
-          {/* Left */}
           <div>
             <motion.div
-              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-accent/20 bg-accent/5 mb-8"
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-primary/20 bg-primary/5 mb-8"
               initial={{ opacity: 0, x: -10 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <Repeat className="h-3.5 w-3.5 text-accent" />
-              <span className="text-accent text-xs font-medium tracking-wide">Trade-In</span>
+              <Repeat className="h-3.5 w-3.5 text-primary" />
+              <span className="text-primary text-xs font-medium tracking-wide">Trade-In</span>
             </motion.div>
 
             <motion.h2
@@ -82,18 +80,17 @@ const TradeInSection = () => {
             </motion.div>
           </div>
 
-          {/* Right — Steps */}
           <div className="flex flex-col justify-center gap-6">
             {steps.map((step, i) => (
               <motion.div
                 key={step.num}
-                className="flex items-start gap-5 p-5 rounded-2xl border border-border/20 bg-secondary/20"
+                className="flex items-start gap-5 p-5 rounded-2xl border border-primary/10 bg-secondary/20"
                 initial={{ opacity: 0, x: 20, filter: "blur(4px)" }}
                 whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.3 + i * 0.1, ease }}
               >
-                <span className="text-accent text-xs font-bold tracking-wider mt-0.5 shrink-0">
+                <span className="text-primary text-xs font-bold tracking-wider mt-0.5 shrink-0">
                   {step.num}
                 </span>
                 <p className="text-foreground text-base font-medium">{step.text}</p>

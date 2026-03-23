@@ -28,9 +28,9 @@ const advantages = [
 
 const AdvantagesSection = () => {
   return (
-    <section id="advantages" className="px-6 md:px-12 py-32 max-w-7xl mx-auto">
+    <section id="advantages" className="px-4 sm:px-6 md:px-12 py-20 md:py-32 max-w-7xl mx-auto">
       <motion.div
-        className="mb-20"
+        className="mb-12 md:mb-20"
         initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
         whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
         viewport={{ once: true, amount: 0.2 }}
@@ -38,7 +38,7 @@ const AdvantagesSection = () => {
       >
         <p className="text-primary text-xs tracking-[0.3em] uppercase mb-4 font-medium">Почему мы</p>
         <h2
-          className="text-4xl md:text-6xl lg:text-7xl font-black tracking-[-0.04em] text-foreground"
+          className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black tracking-[-0.04em] text-foreground"
           style={{ lineHeight: 1 }}
         >
           Наши
@@ -47,11 +47,11 @@ const AdvantagesSection = () => {
         </h2>
       </motion.div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
         {advantages.map((item, i) => (
           <motion.div
             key={item.title}
-            className="group relative rounded-2xl border border-primary/10 bg-card p-8 md:p-10 transition-all duration-500 hover:border-primary/30 hover:shadow-[0_0_40px_-12px_hsla(52,100%,50%,0.1)]"
+            className="group relative rounded-2xl border border-primary/10 bg-card p-6 sm:p-7 md:p-10 transition-all duration-500 hover:border-primary/30 hover:shadow-[0_0_40px_-12px_hsla(52,100%,50%,0.1)]"
             initial={{ opacity: 0, y: 24, filter: "blur(6px)" }}
             whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             viewport={{ once: true, amount: 0.1 }}
@@ -60,7 +60,7 @@ const AdvantagesSection = () => {
             <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/15 transition-colors duration-300">
               <item.icon className="h-5 w-5 text-primary" />
             </div>
-            <h3 className="text-xl font-bold tracking-tight text-foreground mb-3">{item.title}</h3>
+            <h3 className="text-lg sm:text-xl font-bold tracking-tight text-foreground mb-3">{item.title}</h3>
             <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
           </motion.div>
         ))}

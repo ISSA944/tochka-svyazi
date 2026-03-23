@@ -3,6 +3,7 @@ import categoryApple from "@/assets/category-apple.jpg";
 import categoryDyson from "@/assets/category-dyson.jpg";
 import categoryPs5 from "@/assets/category-ps5.jpg";
 import categoryPerfume from "@/assets/category-perfume.jpg";
+import heroBg from "@/assets/hero-bg.jpg";
 
 const WHATSAPP_URL = "https://wa.me/77026933999?text=Здравствуйте!%20Интересует%20";
 
@@ -29,7 +30,7 @@ const categories: CategoryCard[] = [
   {
     title: "Samsung",
     desc: "Galaxy · Наушники · Часы",
-    image: categoryDyson,
+    image: heroBg,
     query: "продукция%20Samsung",
     span: "md:col-span-1 md:row-span-1",
     glowColor: "hsla(52, 100%, 50%, 0.12)",
@@ -62,9 +63,9 @@ const categories: CategoryCard[] = [
 
 const BentoGrid = () => {
   return (
-    <section id="catalog" className="px-6 md:px-12 py-32 max-w-7xl mx-auto">
+    <section id="catalog" className="px-4 sm:px-6 md:px-12 py-20 md:py-32 max-w-7xl mx-auto">
       <motion.div
-        className="mb-20"
+        className="mb-12 md:mb-20"
         initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
         whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
         viewport={{ once: true, amount: 0.2 }}
@@ -72,7 +73,7 @@ const BentoGrid = () => {
       >
         <p className="text-primary text-xs tracking-[0.3em] uppercase mb-4 font-medium">Каталог</p>
         <h2
-          className="text-4xl md:text-6xl lg:text-7xl font-black tracking-[-0.04em] text-foreground"
+          className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black tracking-[-0.04em] text-foreground"
           style={{ lineHeight: 1 }}
         >
           Всё лучшее —
@@ -81,14 +82,14 @@ const BentoGrid = () => {
         </h2>
       </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-3 auto-rows-[240px] md:auto-rows-[280px]">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 auto-rows-[220px] sm:auto-rows-[240px] md:auto-rows-[280px]">
         {categories.map((cat, i) => (
           <motion.a
             key={cat.title}
             href={`${WHATSAPP_URL}${cat.query}`}
             target="_blank"
             rel="noopener noreferrer"
-            className={`group relative rounded-2xl overflow-hidden ${cat.span}`}
+            className={`group relative min-h-[220px] rounded-2xl overflow-hidden ${cat.span}`}
             initial={{ opacity: 0, y: 24, filter: "blur(6px)" }}
             whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             viewport={{ once: true, amount: 0.1 }}
@@ -97,7 +98,7 @@ const BentoGrid = () => {
             <img
               src={cat.image}
               alt={cat.title}
-              className="absolute inset-0 w-full h-full object-cover transition-transform duration-[800ms] ease-out group-hover:scale-[1.06] opacity-70 group-hover:opacity-90"
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06] opacity-70 group-hover:opacity-90"
               loading="lazy"
             />
 
@@ -114,7 +115,7 @@ const BentoGrid = () => {
 
             <div className="absolute inset-0 rounded-2xl border border-primary/10 group-hover:border-primary/25 transition-colors duration-500 pointer-events-none" />
 
-            <div className="relative z-10 flex flex-col justify-end h-full p-6 md:p-8">
+            <div className="relative z-10 flex flex-col justify-end h-full p-5 sm:p-6 md:p-8">
               <h3
                 className={`text-xl md:text-2xl font-bold tracking-tight text-foreground mb-1 transition-transform duration-500 group-hover:translate-y-[-2px] ${
                   cat.serif ? "font-serif-luxury text-2xl md:text-3xl italic font-medium tracking-normal" : ""

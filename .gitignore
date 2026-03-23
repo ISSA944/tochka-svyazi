@@ -26,3 +26,7 @@ dist-ssr
 .antigravity_context/
 playwright-report/
 test-results/
+reference/
+rules/
+todo/
+src/components/TechSphere.tsx

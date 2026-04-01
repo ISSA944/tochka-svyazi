@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 import categoryApple from "@/assets/category-apple.jpg";
+import categorySamsung from "@/assets/category-samsung.jpg";
 import categoryDyson from "@/assets/category-dyson.jpg";
 import categoryPs5 from "@/assets/category-ps5.jpg";
 import categoryPerfume from "@/assets/category-perfume.jpg";
-import heroBg from "@/assets/hero-bg.jpg";
 
 const WHATSAPP_URL = "https://wa.me/77026933999?text=Здравствуйте!%20Интересует%20";
 
@@ -30,7 +30,7 @@ const categories: CategoryCard[] = [
   {
     title: "Samsung",
     desc: "Galaxy · Наушники · Часы",
-    image: heroBg,
+    image: categorySamsung,
     query: "продукция%20Samsung",
     span: "md:col-span-1 md:row-span-1",
     glowColor: "hsla(52, 100%, 50%, 0.12)",

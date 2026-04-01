@@ -72,32 +72,11 @@ float snoise(vec3 v){
 
 void main() {
     vColor = color;
-    
-    vec4 worldPos = modelMatrix * vec4(position, 1.0);
-    float distToMouse = distance(worldPos.xyz, uMousePos);
-    float influence = 1.0 - smoothstep(0.0, uEffectRadius, distToMouse);
-    
-    vec3 newPosition = position;
-    
-    if (influence > 0.001) {
-        float breathNoise = snoise(position * 1.5 + uTime * 0.4);
-        vec3 swirlNoise = vec3(
-            snoise(position.yzx * 3.0 + uTime),
-            snoise(position.zxy * 3.0 + uTime),
-            snoise(position.xyz * 3.0 + uTime)
-        );
-        
-        vec3 explodeDir = normalize(vec3(swirlNoise.x, swirlNoise.y, swirlNoise.z + 1.5));
-        float expandDist = (1.5 + breathNoise * 2.0) * influence;
-        newPosition = position + explodeDir * expandDist;
-    }
-    
-    vec4 mvPosition = modelViewMatrix * vec4(newPosition, 1.0);
+    vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
     gl_Position = projectionMatrix * mvPosition;
-    
     float baseSize = 15.0;
-    gl_PointSize = baseSize * (1.0 / -mvPosition.z) * (1.0 - influence * 0.95);
-    vAlpha = 1.0 - smoothstep(0.0, 0.8, influence);
+    gl_PointSize = baseSize * (1.0 / -mvPosition.z);
+    vAlpha = 1.0;
 }
 `;
 

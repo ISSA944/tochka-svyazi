@@ -30,7 +30,7 @@ const categories: CategoryCard[] = [
   {
     title: "Samsung",
     desc: "Galaxy · Наушники · Часы",
-    image: heroBg,
+    image: categorySamsung,
     query: "продукция%20Samsung",
     span: "md:col-span-1 md:row-span-1",
     glowColor: "hsla(52, 100%, 50%, 0.12)",

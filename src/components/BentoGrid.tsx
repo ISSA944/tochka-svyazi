@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 import categoryApple from "@/assets/category-apple.jpg";
+import categorySamsung from "@/assets/category-samsung.jpg";
 import categoryDyson from "@/assets/category-dyson.jpg";
 import categoryPs5 from "@/assets/category-ps5.jpg";
 import categoryPerfume from "@/assets/category-perfume.jpg";
-import heroBg from "@/assets/hero-bg.jpg";
 
 const WHATSAPP_URL = "https://wa.me/77026933999?text=Здравствуйте!%20Интересует%20";
 

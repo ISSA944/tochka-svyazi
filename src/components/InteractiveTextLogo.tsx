@@ -1,5 +1,5 @@
-import { Float, type ThreeEvent } from "@react-three/drei";
-import { useFrame } from "@react-three/fiber";
+import { Float } from "@react-three/drei";
+import { useFrame, type ThreeEvent } from "@react-three/fiber";
 import { useMemo, useRef } from "react";
 import {
   AdditiveBlending,

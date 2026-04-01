@@ -75,37 +75,34 @@ void main() {
     vec4 worldPos = modelMatrix * vec4(position, 1.0);
     float distToMouse = distance(worldPos.xyz, uMousePos);
     
-    // Коэффициент влияния: 1.0 прямо под мышкой, 0.0 на краю эффекта
+    // Influence: 1.0 directly under mouse, 0.0 at edge of effect
     float influence = 1.0 - smoothstep(0.0, uEffectRadius, distToMouse);
     
-    // Поведение Idle
-    float breathNoise = snoise(position * 1.5 + uTime * 0.4);
-    vec3 idlePosition = position;
-    idlePosition.z += breathNoise * 0.05; // Легкое дыхание текста по Z
-    idlePosition.y += snoise(position * 2.0 + uTime * 0.3) * 0.02;
+    // No idle animation — particles stay perfectly still
+    vec3 newPosition = position;
     
-    // Поведение Hover (Локальное растворение под курсором)
-    vec3 swirlNoise = vec3(
-        snoise(position.yzx * 3.0 + uTime),
-        snoise(position.zxy * 3.0 + uTime),
-        snoise(position.xyz * 3.0 + uTime)
-    );
+    // Only activate on hover (when mouse is near)
+    if (influence > 0.001) {
+        float breathNoise = snoise(position * 1.5 + uTime * 0.4);
+        vec3 swirlNoise = vec3(
+            snoise(position.yzx * 3.0 + uTime),
+            snoise(position.zxy * 3.0 + uTime),
+            snoise(position.xyz * 3.0 + uTime)
+        );
+        
+        vec3 explodeDir = normalize(vec3(swirlNoise.x, swirlNoise.y, swirlNoise.z + 1.5));
+        float expandDist = (1.5 + breathNoise * 2.0) * influence;
+        newPosition = position + explodeDir * expandDist;
+    }
     
-    // Взрыв идет преимущественно по оси Z (на зрителя и от зрителя) + хаос
-    vec3 explodeDir = normalize(vec3(swirlNoise.x, swirlNoise.y, swirlNoise.z + 1.5));
-    
-    // Дальность разлета пропорциональна influence
-    float expandDist = (1.5 + breathNoise * 2.0) * influence;
-    
-    vec3 newPosition = idlePosition + explodeDir * expandDist;
     vec4 mvPosition = modelViewMatrix * vec4(newPosition, 1.0);
     gl_Position = projectionMatrix * mvPosition;
     
-    // Размер частиц
-    float baseSize = 15.0 + breathNoise * 8.0;
+    // Particle size
+    float baseSize = 15.0;
     gl_PointSize = baseSize * (1.0 / -mvPosition.z) * (1.0 - influence * 0.95);
     
-    // Opacity: плавно "испаряются" под мышкой
+    // Opacity: fade out under mouse
     vAlpha = 1.0 - smoothstep(0.0, 0.8, influence);
 }
 `;
